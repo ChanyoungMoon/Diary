@@ -1,0 +1,33 @@
+{% extends 'base_member.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="{% url 'member:signup' %}">
+                                <div class="logo">
+                                    <img class="logo-size" src="{% static 'images/logo-light.svg' %}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <h3>행복한 일기장</h3>
+                        <p>추억을 담으세요</p>
+                        <div class="page-links">
+                            <a href="{% url 'member:login' %}">로그인</a><a href="{% url 'member:signup' %}" class="active">등록하기</a>
+                        </div>
+                        {% include 'include/form.html' with form=signup_form submit_title='회원가입' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base_post.html' %}
+
+<div>
+
+{% block title %}지금까지 쓴 일기{% endblock %}
+{% block content %}
+    <div class="post-list">
+    	{% for post in posts %}
+	    	<div id="post-{{ post.pk }}">
+		    	{% include 'include/post.html' with post_type='list' %}
+		    </div>
+    	{% endfor %}
+    </div>
+</div>
+
+{% endblock %}

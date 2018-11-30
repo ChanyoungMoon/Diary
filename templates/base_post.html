@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iofrm</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iofrm-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iofrm-theme.css' %}">
+</head>
+<body>
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert-message alert
+					{% if message.tags == 'info' %}
+						alert-info
+					{% elif message.tags == 'success' %}
+						alert-success
+					{% elif message.tags == 'warning' %}
+						alert-warning
+					{% elif message.tags == 'error' %}
+						alert-danger
+					{% endif %}
+					">{{ message }}</div>
+			{% endfor %}
+		{% endif %}
+
+    <div class="form-body without-side">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <img src="{% static 'images/tree/' %}{{count}}.jpg">
+                        <div class="post">
+                            <h3>{% block title %}{% endblock %}</h3>
+                            <div class="post-button">
+                                <a href="{% url 'post:post_list' %}"><img src="{% static 'images/diary.svg' %}"/></a>
+                                <a href="{% url 'post:post_create' %}"><img src="{% static 'images/diary2.svg' %}"/></a>
+                                <a href="{% url 'member:logout' %}"><img src="{% static 'images/diary3.svg' %}"/></a>
+                            </div>
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

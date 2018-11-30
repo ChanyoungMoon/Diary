@@ -1,0 +1,6 @@
+{% extends 'base_post.html' %}
+
+{% block title %}일기 쓰기{% endblock %}
+{% block content %}
+        {% include 'include/form.html' with form=post_form submit_title='일기 쓰기' %}
+{% endblock %}

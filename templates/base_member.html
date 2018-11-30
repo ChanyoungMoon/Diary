@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iofrm</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iofrm-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/iofrm-theme.css' %}">
+</head>
+<body>
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert-message alert
+					{% if message.tags == 'info' %}
+						alert-info
+					{% elif message.tags == 'success' %}
+						alert-success
+					{% elif message.tags == 'warning' %}
+						alert-warning
+					{% elif message.tags == 'error' %}
+						alert-danger
+					{% endif %}
+					">{{ message }}</div>
+			{% endfor %}
+		{% endif %}
+
+		{% block content %}
+
+		{% endblock %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

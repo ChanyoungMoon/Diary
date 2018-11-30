@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">
+        <a href="{% url 'post:post_detail' post_pk=post.pk %}">
+		{{ post.title }}</a>
+    </h4>
+    <h8 class="card-subtitle mb-2 text-muted">2018.11.27</h8>
+    <p class="card-text">{{ post.content }}</p>
+  </div>
+</div>
